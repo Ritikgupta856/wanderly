@@ -15,7 +15,7 @@ import { SafeUser } from "@/app/types"
 
 
 interface UserMenuProps{
-currentUser:SafeUser| null | undefined
+currentUser:SafeUser| null
 }
 
 const UserMenu:React.FC<UserMenuProps> = ({
