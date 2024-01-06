@@ -23,7 +23,7 @@ const initialDateRange = {
 
 interface ListingClientProps {
     reservation?: SafeReservation[],
-    listing?:SafeListing & {
+    listing:SafeListing & {
         user:SafeUser
     }
     currentUser?: SafeUser | null
@@ -115,9 +115,9 @@ const ListingClient: React.FC<ListingClientProps> = ({
             <div className="max-w-screen-xl mx-auto">
                 <div className="flex flex-col gap-6 ">
                     <ListingHead
-                        title={listing?.title}
-                        imageSrc={listing?.imageSrc}
-                        locationValue={listing?.locationValue}
+                        title={listing.title}
+                        imageSrc={listing.imageSrc}
+                        locationValue={listing.locationValue}
                     />
 
                     <div className="grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6">
