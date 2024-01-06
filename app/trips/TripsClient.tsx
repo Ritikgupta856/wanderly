@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 
 interface TripsClientProps{
     reservations : SafeReservation[];
-    currentUser?:SafeUser | null;
+    currentUser?: SafeUser | null | undefined
 }
 
 const TripsClient:React.FC<TripsClientProps> = ({
