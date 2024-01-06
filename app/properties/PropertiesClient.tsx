@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 
 interface PropertiesClientProps{
     listings : SafeListing[];
-    currentUser?: SafeUser | null | undefined
+    currentUser?: SafeUser | null
 }
 
 const PropertiesClient:React.FC<PropertiesClientProps> = ({

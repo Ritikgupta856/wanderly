@@ -15,7 +15,7 @@ interface ListingCardProps{
     disabled?:boolean
     actionLabel?:string;
     actionId?:string;
-    currentUser?:SafeUser | null | undefined
+    currentUser?:SafeUser | null
 
 }
 
