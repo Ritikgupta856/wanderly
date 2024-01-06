@@ -5,17 +5,20 @@ import axios from 'axios'
 import { FcGoogle } from 'react-icons/fc'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import useRegisterModal from '../hooks/userRegisterModal'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import Modal from './modal'
 import Heading from '../Heading'
 import Input from '../inputs/Input'
 import toast from 'react-hot-toast'
 import Button from '../Button'
+import { signIn } from 'next-auth/react'
+import useLoginModal from '../hooks/userLoginModal'
 
 
 const RegisterModal = () => {
 
     const registerModal = useRegisterModal();
+    const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
     const {
         register,
@@ -37,6 +40,8 @@ const RegisterModal = () => {
         axios.post('/api/register', data)
             .then(() => {
                 registerModal.onClose();
+                toast.success("Success!")
+                loginModal.onOpen();
             })
 
             .catch((error) => {
@@ -47,6 +52,13 @@ const RegisterModal = () => {
                 setIsLoading(false);
             })
     }
+
+
+    const toggle = useCallback(()=>{
+        registerModal.onClose();
+        loginModal.onOpen();
+     
+    },[loginModal,registerModal])
 
 
     const bodyContent = (
@@ -65,14 +77,14 @@ const RegisterModal = () => {
                 outline
                 label='Continue with Google'
                 icon={FcGoogle}
-                onClick={() => { }}
+                onClick={() => signIn('google')}
             />
         <div className='flex flex-row justify-center items-center gap-2 mt-4 font-light text-neutral-500'>
           <div>
             Already have an account?
           </div>
 
-          <div onClick={registerModal.onClose} className='text-neutral-800 cursor-pointer hover:underline'>
+          <div onClick={toggle} className='text-neutral-800 cursor-pointer hover:underline'>
             Log in
           </div>
         </div>

@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation"
 const Logo = () => {
     const router = useRouter();
   return (
-    <div>
-       <Image src="/images/logo.png" alt="logo" width="100" height="100"/>
+    <div className="cursor-pointer">
+       <Image onClick={()=>router.push('/')}src="/images/logo.png" alt="logo" width="100" height="100"/>
     </div>
   )
 }

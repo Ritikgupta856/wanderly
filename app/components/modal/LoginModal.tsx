@@ -1,12 +1,10 @@
 'use client'
 import { signIn } from 'next-auth/react'
 
-import axios from 'axios'
-
 import { FcGoogle } from 'react-icons/fc'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import useRegisterModal from '../hooks/userRegisterModal'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import Modal from './modal'
 import Heading from '../Heading'
 import Input from '../inputs/Input'
@@ -62,6 +60,12 @@ const LoginModal = () => {
             
     }
 
+
+    const toggle = useCallback(()=>{
+        loginModal.onClose();
+        registerModal.onOpen();
+    },[loginModal,registerModal])
+
     const bodyContent = (
         <div className='flex flex-col gap-4'>
             <Heading title='Welcome back' subtitle='Login to your Account' />
@@ -77,14 +81,14 @@ const LoginModal = () => {
                 outline
                 label='Continue with Google'
                 icon={FcGoogle}
-                onClick={() => { }}
+                onClick={() => signIn('google')}
             />
             <div className='flex flex-row justify-center items-center gap-2 mt-4 font-light text-neutral-500'>
                 <div>
-                    Already have an account?
+                    First time using Airbnb?
                 </div>
 
-                <div onClick={registerModal.onClose} className='text-neutral-800 cursor-pointer hover:underline'>
+                <div onClick={toggle} className='text-neutral-800 cursor-pointer hover:underline'>
                     Register
                 </div>
             </div>

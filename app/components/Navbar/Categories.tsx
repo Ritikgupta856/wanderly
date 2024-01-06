@@ -9,7 +9,7 @@ import CategoryBox from "../CategoryBox"
 import { usePathname, useSearchParams } from "next/navigation"
 
 
-export const Category = [
+export const categories = [
     {
         label:'Beach',
         icon: TbBeach,
@@ -104,8 +104,8 @@ const Categories = () => {
 
   return (
     <Container>
-    <div className="flex flex-row items-center pt-4 justify-between  overflow-x-auto">
-       {Category.map((item)=>(
+    <div className="flex flex-row items-center pt-4 justify-between overflow-x-auto">
+       {categories.map((item)=>(
           <CategoryBox
            key={item.label}
            label={item.label}
