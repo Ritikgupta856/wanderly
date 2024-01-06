@@ -2,10 +2,10 @@
 import useCountries from "../hooks/useCountries";
 import Heading from "../Heading";
 import Image from "next/image";
-import { SafeUser } from "@/app/types";
+
 
 interface ListingHeadProps{
-    title:string ;
+    title:string;
     locationValue:string;
     imageSrc:string;
 }
