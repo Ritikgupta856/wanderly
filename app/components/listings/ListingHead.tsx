@@ -1,5 +1,5 @@
 
-import useCountries from "../hooks/useCountries";
+import useCountries from "@/app/hooks/useCountries";
 import Heading from "../Heading";
 import Image from "next/image";
 
