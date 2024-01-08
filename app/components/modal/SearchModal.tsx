@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter, useSearchParams } from "next/navigation";
-import useSearchModal from "../hooks/useSearchModel";
+
 import Modal from "./modal";
 import { useCallback, useMemo, useState } from "react";
 import { Range } from "react-date-range";
@@ -11,6 +11,7 @@ import { formatISO } from "date-fns";
 import Heading from "../Heading";
 import Calendar from "../inputs/Calendar";
 import Counter from "../inputs/Counter";
+import useSearchModal from "@/app/hooks/useSearchModel";
 
 enum STEPS{
     LOCATION = 0,
@@ -19,7 +20,7 @@ enum STEPS{
 }
 
 const SearchModal = () => {
-    const searchModal =useSearchModal();
+    const searchModal= useSearchModal();
     const router = useRouter();
     const params = useSearchParams();
 
@@ -44,6 +45,7 @@ const SearchModal = () => {
 
       const onSubmit = useCallback(async () =>{
         if(step!== STEPS.INFO) return onNext();
+        
         let currentQuery = {};
 
         if(params) {
@@ -70,7 +72,7 @@ const SearchModal = () => {
         }
 
 
-        const url = qs.stringify({
+        const url = qs.stringifyUrl({
           url:"/",
           query:updatedQuery
         },{skipNull:true})

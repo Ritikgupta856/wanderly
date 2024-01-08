@@ -4,21 +4,24 @@ import { AiOutlineMenu } from "react-icons/ai"
 import Avatar from "../Avatar"
 import { useCallback, useState } from "react"
 import MenuItems from "./MenuItems"
-import useRegisterModal from "../hooks/userRegisterModal"
-import useLoginModal from "../hooks/userLoginModal"
+
 import { signOut } from "next-auth/react"
-import useRentModal from "../hooks/useRentModal"
+
 import { useRouter } from "next/navigation"
 import { SafeUser } from "@/app/types"
+import ClickAwayListener from 'react-click-away-listener';
+import useRegisterModal from "@/app/hooks/useRegisterModal"
+import useLoginModal from "@/app/hooks/useLoginModal"
+import useRentModal from "@/app/hooks/useRentModal"
 
 
 
 
-interface UserMenuProps{
+interface UserMenuProps {
     currentUser?: SafeUser | null;
 }
 
-const UserMenu:React.FC<UserMenuProps> = ({
+const UserMenu: React.FC<UserMenuProps> = ({
     currentUser
 }) => {
 
@@ -30,18 +33,22 @@ const UserMenu:React.FC<UserMenuProps> = ({
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleOpen = useCallback(() => {
-        setIsOpen((value) => !value);
+        setIsOpen(true);
     }, []);
 
+    const handleClickAway = () => {
+        setIsOpen(false);
+    }
 
-    const onRent = useCallback(()=>{
-        if(!currentUser){
-         return loginModal.onOpen();
+
+    const onRent = useCallback(() => {
+        if (!currentUser) {
+            return loginModal.onOpen();
         }
 
         rentModal.onOpen();
 
-    },[currentUser,loginModal,rentModal])
+    }, [currentUser, loginModal, rentModal])
 
 
 
@@ -56,35 +63,41 @@ const UserMenu:React.FC<UserMenuProps> = ({
                     <AiOutlineMenu size={18} />
 
                     <div className="hidden md:block">
-                        <Avatar src={currentUser?.image}/>
+                        <Avatar src={currentUser?.image} />
                     </div>
 
                 </div>
             </div>
 
             {isOpen && (
-                <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
-                    <div className="flex flex-col cursor-pointer">
-                        {currentUser ? (
-                               <>
-                               <MenuItems onClick={()=>router.push(`/trips`)} label="My trips" />
-                               <MenuItems onClick={()=>{}} label="My reservations" />
-                               <MenuItems onClick={()=>{router.push(`/properties`)}} label="My properties" />
-                               <MenuItems onClick={onRent} label="Airbnb my home" />
-                               <hr/>
-                               <MenuItems onClick={()=>signOut()} label="Logout" />
-                           
-                           </>
-                        ) : (
-                            <>
-                            <MenuItems onClick={loginModal.onOpen} label="Login" />
-                            <MenuItems onClick={registerModal.onOpen} label="Sign up" />
-                        </>
-                        )
-                        }
-                     
+                <ClickAwayListener onClickAway={handleClickAway}>
+                    <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
+                        <div className="flex flex-col cursor-pointer">
+                            {currentUser ? (
+                                <>
+                                    <MenuItems onClick={() => router.push(`/trips`)} label="My trips" />
+                                    <MenuItems onClick={() => router.push(`/favorites`)} label="My Favorites" />
+                                    <MenuItems onClick={() => { router.push(`/properties`) }} label="My properties" />
+                                    
+                                    <div className="md:hidden">
+                                        <MenuItems onClick={onRent} label="Airbnb my home" />
+                                    </div>
+
+                                    <hr />
+                                    <MenuItems onClick={() => signOut()} label="Logout" />
+
+                                </>
+                            ) : (
+                                <>
+                                    <MenuItems onClick={loginModal.onOpen} label="Login" />
+                                    <MenuItems onClick={registerModal.onOpen} label="Sign up" />
+                                </>
+                            )
+                            }
+
+                        </div>
                     </div>
-                </div>
+                </ClickAwayListener>
             )}
         </div>
     )

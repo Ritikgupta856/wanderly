@@ -1,12 +1,14 @@
 'use client'
 
 import { useRouter } from "next/navigation";
-import useCountries from "../hooks/useCountries";
+
 import { useCallback, useMemo } from "react";
 import {format} from 'date-fns'
 import Image from "next/image";
 import Button from "../Button";
 import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
+import HeartButton from "../HeartButton";
+import useCountries from "@/app/hooks/useCountries";
 
 interface ListingCardProps{
     data:SafeListing;
@@ -26,6 +28,7 @@ const ListingCard:React.FC<ListingCardProps> = ({
     disabled,
     actionLabel,
     actionId="",
+    currentUser
   
 
 }) => {
@@ -71,9 +74,12 @@ const ListingCard:React.FC<ListingCardProps> = ({
     <div onClick={()=>router.push(`/listings/${data.id}`)} 
     className="col-span-1 cursor-pointer group"
     >
-     <div className="flex flex-col gap-2 w-full">
+     <div className="flex flex-col gap-2 w-full z-0">
         <div className="aspect-square w-full relative overflow-hidden rounded-xl">
             <Image fill alt="listing" src={data.imageSrc} className="object-cover h-full w-full group-hover:scale-110 transition"/>
+            <div className=" absolute top-3 right-3">
+            <HeartButton  listingId={data.id} currentUser={currentUser}/>
+            </div>
         </div>
 
         <div className="font-semibold text-lg">
@@ -85,7 +91,7 @@ const ListingCard:React.FC<ListingCardProps> = ({
         </div>
         <div className="flex flex-row items-center gap-1">
            <div className="font-bold ">
-           &#8377; {price}
+           &#8377; {price.toLocaleString('en-IN')}
            </div>
            {!reservation && (
             <div className="font-light">night</div>

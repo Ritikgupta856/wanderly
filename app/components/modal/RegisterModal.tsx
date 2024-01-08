@@ -4,7 +4,6 @@ import axios from 'axios'
 
 import { FcGoogle } from 'react-icons/fc'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
-import useRegisterModal from '../hooks/userRegisterModal'
 import { useCallback, useState } from 'react'
 import Modal from './modal'
 import Heading from '../Heading'
@@ -12,7 +11,9 @@ import Input from '../inputs/Input'
 import toast from 'react-hot-toast'
 import Button from '../Button'
 import { signIn } from 'next-auth/react'
-import useLoginModal from '../hooks/userLoginModal'
+
+import useRegisterModal from '@/app/hooks/useRegisterModal'
+import useLoginModal from '@/app/hooks/useLoginModal'
 
 
 const RegisterModal = () => {

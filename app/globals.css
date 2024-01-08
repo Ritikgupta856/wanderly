@@ -20,7 +20,7 @@ body,
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 2px;
 }
 
 /* Track */
@@ -36,4 +36,9 @@ body,
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+
+.noscrollbar::-webkit-scrollbar{
+  display: none;
 }

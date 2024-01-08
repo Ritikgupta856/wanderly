@@ -1,6 +1,6 @@
 'use client'
 import { useMemo, useState } from "react";
-import useRentModal from "../hooks/useRentModal"
+
 import Modal from "./modal"
 import Heading from "../Heading";
 import { categories } from "../Navbar/Categories";
@@ -13,6 +13,7 @@ import Input from "../inputs/Input";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import useRentModal from "@/app/hooks/useRentModal";
 
 
 

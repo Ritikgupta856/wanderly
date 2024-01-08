@@ -104,7 +104,7 @@ const Categories = () => {
 
   return (
     <Container>
-    <div className="flex flex-row items-center pt-4 justify-between overflow-x-auto">
+    <div className="flex flex-row items-center pt-4 justify-between overflow-x-auto noscrollbar ">
        {categories.map((item)=>(
           <CategoryBox
            key={item.label}
