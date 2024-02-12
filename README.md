@@ -4,9 +4,25 @@ This project is a responsive online homestay marketplace developed using Next.js
 
 ## Features
 
-- **Responsive Design**: Utilizes Next.js and Tailwind CSS to ensure a seamless user experience across devices.
-- **TypeScript Integration**: Optimizes code quality and enables early error detection.
-- **Secure Authentication**: Implements NextAuth for secure authentication, ensuring user data integrity and privacy.
+- **Tailwind Design**: Utilizes Tailwind CSS for modern and customizable design.
+- **Full Responsiveness**: Ensures seamless user experience across various devices.
+- **Credential Authentication**: Implements secure authentication using email/password.
+- **Google Authentication**: Offers authentication via Google accounts.
+- **Image Upload using Cloudinary CDN**: Enables users to upload images with Cloudinary as the content delivery network.
+- **Client Form Validation and Handling using react-hook-form**: Validates and handles forms efficiently on the client-side.
+- **Server Error Handling using react-toast**: Handles errors gracefully on the server side.
+- **Calendars with react-date-range**: Integrates calendars for date selection.
+- **Page Loading State**: Displays loading state during page loading.
+- **Page Empty State**: Handles empty states gracefully.
+- **Booking / Reservation System**: Implements a system for booking and reservations.
+- **Guest Reservation Cancellation**: Allows guests to cancel their reservations.
+- **Creation and Deletion of Properties**: Facilitates property creation and deletion.
+- **Pricing Calculation**: Calculates pricing based on various factors.
+- **Advanced Search Algorithm**: Utilizes an advanced search algorithm for filtering properties based on category, date range, map location, number of guests, rooms, and bathrooms. Filters out properties with reservations in the desired date range.
+- **Favorites System**: Implements a favorites system for users.
+- **POST and DELETE Routes in Route Handlers**: Demonstrates writing POST and DELETE routes in route handlers (app/api).
+
+
 
 
 ## Getting Started
