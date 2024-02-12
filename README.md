@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Airbnb Clone
+
+This project is a responsive online homestay marketplace developed using Next.js, TypeScript, MongoDB, and Prisma. It integrates Tailwind CSS for modern design, NextAuth for secure authentication, and optimizes code for better quality and early error detection.
+
+## Features
+
+- **Responsive Design**: Utilizes Next.js and Tailwind CSS to ensure a seamless user experience across devices.
+- **TypeScript Integration**: Optimizes code quality and enables early error detection.
+- **Secure Authentication**: Implements NextAuth for secure authentication, ensuring user data integrity and privacy.
+
 
 ## Getting Started
 
