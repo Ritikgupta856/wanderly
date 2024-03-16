@@ -1,4 +1,4 @@
-# Airbnb Clone
+# Wanderly - Homestay Marketplace
 
 This project is a responsive online homestay marketplace developed using Next.js, TypeScript, MongoDB, and Prisma. It integrates Tailwind CSS for modern design, NextAuth for secure authentication, and optimizes code for better quality and early error detection.
 
