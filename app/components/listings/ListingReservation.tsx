@@ -50,7 +50,7 @@ const ListingReservation:React.FC<ListingReservationProps> = ({
                     </div>
 
                     <div>
-                    &#8377;{totalPrice}
+                    &#8377;{totalPrice?.toLocaleString('en-IN')}
                     </div>
 
                 </div>

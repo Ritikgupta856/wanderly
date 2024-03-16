@@ -13,7 +13,7 @@ const font = Nunito({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
 
-  title: 'Airbnb | Holiday rentals, cabins, beach houses & more',
+  title: 'Wanderly | Holiday rentals, cabins, beach houses & more',
   description: 'Booking Website',
 }
 
