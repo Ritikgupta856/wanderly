@@ -57,7 +57,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
     return (
         <div className="relative">
             <div className="flex flex-row items-center gap-3">
-                <div onClick={onRent} className="hidden md:block py-3 px-4 font-semibold text-sm rounded-full hover:bg-neutral-100 transition cursor-pointer ">Airbnb your home</div>
+                <div onClick={onRent} className="hidden md:block py-3 px-4 font-semibold text-sm rounded-full hover:bg-neutral-100 transition cursor-pointer ">Add your home</div>
                 <div onClick={toggleOpen} className="border-[1px] border-neutral-200 rounded-full cursor-pointer hover:shadow-md md:py-1 md:px-2 flex flex-row items-center gap-3 transition">
 
                     <AiOutlineMenu size={18} />

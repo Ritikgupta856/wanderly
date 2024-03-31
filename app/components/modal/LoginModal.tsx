@@ -87,7 +87,7 @@ const LoginModal = () => {
             />
             <div className='flex flex-row justify-center items-center gap-2 mt-4 font-light text-neutral-500'>
                 <div>
-                    First time using Airbnb?
+                    First time using Wanderly?
                 </div>
 
                 <div onClick={toggle} className='text-neutral-800 cursor-pointer hover:underline'>
